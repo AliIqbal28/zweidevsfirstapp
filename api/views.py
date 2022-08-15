@@ -23,7 +23,7 @@ class EmployeeViewSet(ModelViewSet):
         return SimpleEmployeeSerializer
 
     def get_queryset(self):
-        return Employee.objects.filter(software_house_id=self.kwargs['softwarehouse_pk'])
+        return Employee.objects.select_related("software_house").filter(software_house_id=self.kwargs['softwarehouse_pk'])
 
     def get_serializer_context(self):
         return {'software_house_id': self.kwargs['softwarehouse_pk']}
