@@ -11,7 +11,7 @@ class SoftwareHouseViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     serializer_class = SoftwareHouseSerializer
-    queryset = SoftwareHouse.objects.all()
+    queryset = SoftwareHouse.objects.prefetch_related("employees").all()
 
 
 class EmployeeViewSet(ModelViewSet):

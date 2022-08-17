@@ -5,7 +5,7 @@ from api.models import SoftwareHouse, Employee
 class SimpleEmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ["id", "first_name", "last_name", "email"]
+        fields = ["id", "first_name", "last_name", "email", "software_house"]
 
 
 class SoftwareHouseSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class SoftwareHouseSerializer(serializers.ModelSerializer):
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ["id", "first_name", "last_name", "created_at", "software_house", "designation", "email", "phone",
+        fields = ["id", "first_name", "last_name", "created_at", "designation", "email", "phone",
                   "birth_date"]
 
     def create(self, validated_data):
